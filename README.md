@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Visual Pipeline Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based visual pipeline editor that allows users to create dynamic, node-based workflows with real-time validation and backend integration.
 
-## Available Scripts
+## ⚙️ Features
 
-In the project directory, you can run:
+- Drag-and-drop pipeline builder using React Flow
+- Abstracted and reusable node components
+- Dynamic input/output connection handling
+- Smart Text node with variable parsing and live preview
+- Integrated backend validation to check if the pipeline is a DAG
+- Clean, consistent UI with centralized styling
+- Support for custom node types like Input, Output, Text, LLM, Math, JSON, Delay, Logger, and If/Else
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Frontend**
+- React 19 + Vite
+- Zustand (State Management)
+- React Flow
+- SCSS / CSS modules
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Backend**
+- Python
+- FastAPI
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Clone & Install
 
-### `npm run build`
+git clone https://github.com/SamsulAlomLaskar/visual-pipeline-builder.git
+cd visual-pipeline-builder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend
+cd frontend
+npm install
+npm run dev
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📌 How It Works
+Users build a flow by dragging different nodes into the canvas.
 
-### `npm run eject`
+Connections (edges) are established between compatible input/output handles.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+On clicking submit, the frontend sends node/edge data to the backend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The backend responds with the number of nodes, number of edges, and whether the pipeline is a valid DAG.
